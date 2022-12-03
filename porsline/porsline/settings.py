@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-#uc+n7sintqh&2cgi48@7_a30tz35&$4qa8_!a0*ch)xq-uol4'
+SECRET_KEY = 'django-insecure-8in-6_6+n2y6(p^y69e^uk80s^k@&zq345m@(gh21-nn61nxe2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'questionnaire',
+    'users',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -75,8 +78,12 @@ WSGI_APPLICATION = 'porsline.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'porsline',
+        'USER': 'mostafahp77',
+        'PASSWORD': '12400438Mhp',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
