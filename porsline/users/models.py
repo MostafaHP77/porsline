@@ -1,5 +1,5 @@
 from django.db import models
-from questionnaire.models import questionnaire
+from questionnaire.models import questionnaire, answer
 
 # Create your models here.
 class user(models.Model):
@@ -10,3 +10,13 @@ class user(models.Model):
 
     def __str__(self):
         return self.name
+
+class userAnswer(models.Model):
+    answer = models.ForeignKey(answer, on_delete=models.CASCADE)
+    user = models.ForeignKey(user, on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ('answer', 'user',)
+
+    def __str__(self):
+        return str(self.user.id) + ':' + self.answer.text

@@ -12,8 +12,14 @@ class questionnaire(models.Model):
 class question(models.Model):
     question = models.CharField(max_length=500)
     questionMode = models.CharField(max_length=20)
-    deleted = models.BooleanField(default=False)
     questionnaire = models.ForeignKey(questionnaire, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.question
+
+class answer(models.Model):
+    text = models.CharField(max_length=200)
+    question = models.ForeignKey(question, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.text
